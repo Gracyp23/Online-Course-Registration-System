@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Mart Dashboard</title>
+    <style>
+        /* Styling for the body */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Navigation bar */
+        .top-nav {
+            background-color: #3498db;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .top-nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .top-nav ul li {
+            margin: 0 15px;
+        }
+
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .top-nav a:hover {
+            background-color: #2980b9;
+        }
+
+        /* Layout container */
+        .layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            width: 220px;
+            background-color: #004080; /* Dark blue background */
+            padding: 20px;
+            height: 100vh;
+            position: fixed; 
+            left: 0; 
+            top: 0; 
+            overflow: auto;
+        }
+
+        .sidebar h2 {
+            color: white;
+            text-align: center;
+        }
+
+        .sidebar button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            background-color: white;
+            color: black;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            text-align: left;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar button:hover {
+            background-color: #d1e7f3; /* Light blue hover effect */
+        }
+
+        /* Main content */
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            margin-left: 240px;
+        }
+
+        /* Section styles */
+        .section {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        /* Image container */
+        .image-container {
+            background-color: white;
+            padding: 10px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <nav class="top-nav">
+        <ul>
+            <li><a href="signup.html">Sign Up</a></li>
+            <li><a href="signin.html">Sign In</a></li>
+            <li><a href="IMS.html">Inventory</a></li>
+            <li><a href="QuickMart.html">QuickMart</a></li>
+            <li><a href="Products.html">Products</a></li>
+            <li><a href="Predict.html">Prediction</a></li>
+        </ul>
+    </nav>
+
+    <div class="layout">
+        <div class="sidebar">
+            <h2>Quick Mart</h2>
+            <button>Dashboard</button>
+            <button>Products</button>
+            <button>Orders</button>
+            <button>AI/Analysis</button>
+        </div>
+
+        <div class="main-content">
+            <h1>Predictive Analysis</h1>
+            
+            <div class="section">
+                <h2>Products to Order</h2>
+                <div class="image-container">
+                    <img src="pie-chart.png" alt="Pie chart showing products to order">
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Sales Forecast</h2>
+                <div class="image-container">
+                    <img src="line-chart.png" alt="Line graph showing sales forecast">
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Profit Forecast</h2>
+                <div class="image-container">
+                    <img src="profit-fore.png" alt="Graph showing profit forecast">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

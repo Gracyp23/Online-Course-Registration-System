@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      background-color: #f4f4f4;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-top: 20px;
+    }
+
+    /* Top Navigation Bar Styling */
+    .top-nav {
+      background-color: #3498db;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .top-nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .top-nav ul li {
+      display: inline;
+      margin-right: 20px;
+    }
+
+    .top-nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+
+    .top-nav ul li a:hover {
+      background-color: #2980b9;
+    }
+
+    .main-container {
+      display: flex;
+      flex: 1;
+    }
+
+    .sidebar {
+      background-color: #7fbce6;
+      width: 200px;
+      padding: 20px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .sidebar button {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #fff;
+      cursor: pointer;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background-color: #f5f5f5;
+    }
+
+    .header .profile {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .content {
+      display: flex;
+      flex: 1;
+      padding: 20px;
+      gap: 20px;
+      background-color: #f0f0f0;
+    }
+
+    .form-section {
+      background-color: #e9f9ff;
+      padding: 20px;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 200px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-section input,
+    .form-section button {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .form-section input:focus {
+      outline: none;
+      border: 1px solid #3498db;
+      box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+    }
+
+    .form-section button {
+      background-color: #3498db;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-section button:hover {
+      background-color: #2980b9;
+    }
+
+    .table-section {
+      flex: 1;
+    }
+
+    .search-bar {
+      background-color: #e9f9ff;
+      padding: 10px;
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .search-bar input {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .search-bar button {
+      padding: 10px 12px;
+      background-color: #00aaff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    td, th {
+      border: 1px solid #999;
+      padding: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+        <ul>
+            <li><a href="signup.html">Sign Up</a></li>
+            <li><a href="signin.html">Sign In</a></li>
+            <li><a href="IMS.html">Inventory</a></li>
+			<li><a href="QuickMart.html">QuickMart</a></li>
+			<li><a href="Products.html">Products</a></li>
+			<li><a href="Predict.html">Prediction</a></li>
+        </ul>
+    </nav>
+
+  <div class="main-container">
+    <div class="sidebar">
+      <button>Dashboard</button>
+      <button>Products</button>
+      <button>Orders</button>
+      <button>AI/Analysis</button>
+    </div>
+
+    
+
+      <div class="content">
+        <div class="form-section">
+          <input type="text" placeholder="Name" />
+          <input type="text" placeholder="Brand" />
+          <input type="text" placeholder="Category" />
+          <input type="text" placeholder="Supplier" />
+          <input type="text" placeholder="In Stock" />
+          <input type="text" placeholder="Reordering Point" />
+          <input type="text" placeholder="Unit Price" />
+          <button>Add Product</button>
+        </div>
+
+        <div class="table-section">
+          <div class="search-bar">
+            <input type="text" placeholder="Eg. Jackets" />
+            <button>Search</button>
+          </div>
+          <table>
+            <tr>
+              <td></td><td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <!-- Add more rows as needed -->
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

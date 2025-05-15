@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Inventory Management System</title>
+    <style>
+        /* Styling for the body of the page */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Styling for the title (header) */
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-top: 20px;
+        }
+
+        /* Styling for the container that holds form elements and tables */
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Styling for the navigation bar */
+        nav {
+            background-color: #3498db;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            background-color: #2980b9;
+        }
+
+        /* Styling for form groups (input fields and labels) */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #34495e;
+        }
+
+        /* Styling for input fields, select dropdowns, and buttons */
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border: 1px solid #3498db;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+        }
+
+        /* Styling for buttons */
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Styling for section headers */
+        h2 {
+            color: #2c3e50;
+            margin-top: 20px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 5px;
+        }
+
+        /* Styling for inventory table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #bdc3c7;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f4f4f4;
+        }
+
+        /* Styling for low stock alerts */
+        #low-stock-container div {
+            margin-top: 10px;
+            padding: 10px;
+            background: #ffdddd;
+            border-radius: 5px;
+        }
+		
+		/* Navigation bar styles */
+nav {
+    background-color: #3498db;
+    padding: 10px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    background-color: #2980b9;
+}
+
+    </style>
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+        <ul>
+            <li><a href="signup.html">Sign Up</a></li>
+            <li><a href="signin.html">Sign In</a></li>
+            <li><a href="IMS.html">Inventory</a></li>
+			<li><a href="QuickMart.html">QuickMart</a></li>
+			<li><a href="Products.html">Products</a></li>
+			<li><a href="Predict.html">Prediction</a></li>
+        </ul>
+    </nav>
+
+    <h1>Advanced Inventory Management System</h1>
+
+    <!-- Deliverable 1: Item Addition Section -->
+    <div class="container">
+        <h2>Add Item</h2>
+        <div class="form-group">
+            <label for="item-name">Item Name:</label>
+            <input type="text" id="item-name" placeholder="e.g., Apples">
+        </div>
+        <div class="form-group">
+            <label for="item-quantity">Quantity:</label>
+            <input type="number" id="item-quantity" placeholder="e.g., 10">
+        </div>
+        <div class="form-group">
+            <label for="item-price">Price ($):</label>
+            <input type="number" id="item-price" placeholder="e.g., 5.99" step="0.01">
+        </div>
+        <div class="form-group">
+            <label for="product-type">Product Type:</label>
+            <select id="product-type">
+                <option value="home-decor">Home Decor</option>
+                <option value="pet-supplies">Pet Supplies</option>
+                <option value="baby-items">Baby Items</option>
+                <option value="food-produce">Food - Produce</option>
+                <option value="food-dairy">Food - Dairy</option>
+                <option value="food-non-perishables">Food - Non-Perishables</option>
+                <option value="electronics">Electronics</option>
+            </select>
+        </div>
+        <button onclick="addItem()">Add Item</button>
+
+        <!-- Deliverable 2: Inventory Table -->
+        <h2>Inventory Table</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Item Name</th>
+                    <th>Quantity</th>
+                    <th>Price ($)</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody id="inventory-table-body"></tbody>
+        </table>
+
+        <!-- Deliverable 3: Low Stock Alerts -->
+        <h2>Low Stock Alerts</h2>
+        <div id="low-stock-container"></div>
+
+        <!-- Deliverable 4: Total Cost Calculation -->
+        <h2>Total Cost</h2>
+        <div id="total-container">Total (including Tax): $0.00</div>
+    </div>
+
+    <!-- JavaScript Section for Handling Inventory Management Logic -->
+    <script>
+        const inventory = [];  // Array to store inventory items
+        const salesTaxRate = 0.04;  // Sales tax rate for cost calculation
+        const lowStockThreshold = 5;  // Threshold for low stock alerts
+
+        // Function to add a new item to the inventory
+        function addItem() {
+            const name = document.getElementById('item-name').value.trim();
+            const quantity = parseInt(document.getElementById('item-quantity').value.trim());
+            const price = parseFloat(document.getElementById('item-price').value.trim());
+            const type = document.getElementById('product-type').value;
+
+            if (name && !isNaN(quantity) && !isNaN(price) && type) {
+                const newItem = { name, quantity, price, type };
+                inventory.push(newItem);  // Add the item to the inventory array
+                updateTable();  // Update the inventory table with new item
+                checkLowStock();  // Check and display low stock alerts
+                updateTotal();  // Update the total cost including tax
+                clearInputs();  // Clear input fields for new item
+            } else {
+                alert("Please fill in all fields correctly.");  // Alert if input is invalid
+            }
+        }
+
+        // Function to update the inventory table displayed on the webpage
+        function updateTable() {
+            const tableBody = document.getElementById('inventory-table-body');
+            tableBody.innerHTML = ''; // Clear existing rows in the table
+            inventory.forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>${item.quantity}</td>
+                    <td>${item.price.toFixed(2)}</td>
+                    <td>${item.type}</td>
+                `;
+                tableBody.appendChild(row);  // Append new row for each item
+            });
+        }
+
+        // Function to check low stock items and display alerts
+        function checkLowStock() {
+            const lowStockContainer = document.getElementById('low-stock-container');
+            lowStockContainer.innerHTML = ''; // Clear previous alerts
+            inventory.forEach(item => {
+                if (item.quantity < lowStockThreshold) {
+                    const alertDiv = document.createElement('div');
+                    alertDiv.textContent = `${item.name} is low in stock!`;
+                    lowStockContainer.appendChild(alertDiv);  // Display low stock alert
+                }
+            });
+        }
+
+        // Function to calculate and update the total cost including tax
+        function updateTotal() {
+            const totalContainer = document.getElementById('total-container');
+            const total = inventory.reduce((sum, item) => sum + (item.quantity * item.price), 0);
+            const totalWithTax = total + (total * salesTaxRate);  // Apply sales tax
+            totalContainer.textContent = `Total (including Tax): $${totalWithTax.toFixed(2)}`;
+        }
+
+        // Function to clear all input fields after adding an item
+        function clearInputs() {
+            document.getElementById('item-name').value = '';
+            document.getElementById('item-quantity').value = '';
+            document.getElementById('item-price').value = '';
+            document.getElementById('product-type').value = '';
+        }
+    </script>
+</body>
+</html>

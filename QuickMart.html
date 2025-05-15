@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Mart Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* General Page Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Top Navigation Bar - Now Blue */
+        .top-nav {
+            background-color: #3498db;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .top-nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .top-nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .top-nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        .top-nav ul li a:hover {
+            background-color: #2980b9;
+        }
+
+        /* Sidebar Navigation - Now Dark */
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background-color: #2c3e50;
+            padding: 20px;
+            position: fixed;
+            left: 0;
+            top: 50px; /* Offset for top nav */
+            overflow-y: auto;
+        }
+
+        .sidebar h2 {
+            color: white;
+            text-align: center;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 15px 0;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 20px;
+            display: block;
+            border-radius: 5px;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #34495e;
+        }
+
+        /* Main content area */
+        .content {
+            margin-left: 270px;
+            margin-top: 60px; /* Offset for top nav */
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .metrics {
+            text-align: center;
+        }
+
+        canvas {
+            display: block;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+
+
+  <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+        <ul>
+            <li><a href="signup.html">Sign Up</a></li>
+            <li><a href="signin.html">Sign In</a></li>
+            <li><a href="IMS.html">Inventory</a></li>
+			<li><a href="QuickMart.html">QuickMart</a></li>
+			<li><a href="Products.html">Products</a></li>
+			<li><a href="Predict.html">Prediction</a></li>
+        </ul>
+    </nav>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <h2>Quick Mart</h2>
+        <ul>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Orders</a></li>
+            <li><a href="#">AI/Analysis</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <h1>Quick Mart Dashboard</h1>
+
+        <div class="metrics">
+            <p>Total Revenue: <strong>$523,213.03</strong></p>
+            <p>Total Cost: <strong>$3,290.06</strong></p>
+            <p>Total Profit: <strong>$4,213.13</strong></p>
+        </div>
+
+        <canvas id="salesChart"></canvas>
+
+        <script>
+            var ctx = document.getElementById('salesChart').getContext('2d');
+            var salesChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    datasets: [{
+                        label: 'Sales Over Months',
+                        data: [50000, 55000, 60000, 62000, 65000, 70000],
+                        borderColor: 'blue',
+                        borderWidth: 2
+                    }]
+                }
+            });
+        </script>
+    </div>
+</body>
+</html>
